@@ -72,3 +72,30 @@
 | Tema Claro | Tema Oscuro |
 |------------|-------------|
 | <img src="./assets/app/light.jpeg" width="300"/> | <img src="./assets/app/dark.jpeg" width="300"/> |
+
+---
+
+## 🛠 Setup
+- Para la gestión de estados se aplica **Provider**
+- El llamado a los servicio se realiza con **Dio**
+- La navegación es manejada por **GoRouter**
+
+## 📁 Estructura
+Esta es la estructura de carpetas:
+
+```css
+lib/
+├── core/
+│   ├── constants/
+│   ├── routes/
+│   ├── theme/
+│   └── utils/
+├── features/
+│   └── weather/
+│       ├── data/
+│       ├── domain/
+│       └── presentation/
+│── main.dart
+│── .env
+└── .env.dev
+```
