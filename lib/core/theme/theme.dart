@@ -1,4 +1,3 @@
-// theme
 import "package:flutter/material.dart";
 import "package:weatherapp/core/constants/constants.dart";
 

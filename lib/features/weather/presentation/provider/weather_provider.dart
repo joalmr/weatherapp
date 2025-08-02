@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'package:weatherapp/core/utils/location_service.dart';
+import 'package:weatherapp/core/utils/utils.dart';
 import 'package:weatherapp/features/weather/domain/entities/weather_entities.dart';
 import 'package:weatherapp/features/weather/domain/usecases/weather_usecases.dart';
 
