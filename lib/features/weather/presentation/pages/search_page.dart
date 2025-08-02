@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:shimmer_animation/shimmer_animation.dart';
 import 'package:weatherapp/core/constants/colors.dart';
 import 'package:weatherapp/core/utils/utils.dart';
 import 'package:weatherapp/features/weather/presentation/provider/weather_by_city_provider.dart';
@@ -38,6 +39,7 @@ class SearchPage extends StatelessWidget {
                         provider.fetchWeatherByCity(value);
                       },
                       style: TextStyle(color: AppColor.text),
+                      textCapitalization: TextCapitalization.sentences,
                       decoration: InputDecoration(
                         hintText: 'Buscar ciudad...',
                         hintStyle: TextStyle(color: AppColor.text),
@@ -68,8 +70,13 @@ class SearchPage extends StatelessWidget {
                 ],
               ),
             ),
-
-            provider.weather != null
+            provider.isLoading
+                ? Expanded(
+                    child: Shimmer(
+                      child: Container(color: AppColor.background),
+                    ),
+                  )
+                : provider.weather != null
                 ? Expanded(
                     child: SingleChildScrollView(
                       child: Column(
@@ -84,14 +91,14 @@ class SearchPage extends StatelessWidget {
                                   height: 100,
                                   fit: BoxFit.cover,
                                   image: NetworkImage(
-                                    provider.weather!.condition!.icon!,
+                                    provider.weather!.current!.condition!.icon!,
                                   ),
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      '${provider.weather!.tempC}°',
+                                      '${provider.weather!.current!.tempC}°',
                                       style: TextStyle(
                                         fontSize: 22,
                                         fontWeight: FontWeight.bold,
@@ -100,7 +107,8 @@ class SearchPage extends StatelessWidget {
                                     ),
                                     RichText(
                                       text: TextSpan(
-                                        text: '${provider.weather!.region}\n',
+                                        text:
+                                            '${provider.weather!.location!.name}\n',
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,
@@ -108,13 +116,17 @@ class SearchPage extends StatelessWidget {
                                         ),
                                         children: <TextSpan>[
                                           TextSpan(
-                                            text: '${provider.weather!.name}, ',
+                                            text:
+                                                '${provider.weather!.location!.region}, ',
                                             style: TextStyle(
                                               fontWeight: FontWeight.w300,
                                             ),
                                           ),
                                           TextSpan(
-                                            text: provider.weather!.country,
+                                            text: provider
+                                                .weather!
+                                                .location!
+                                                .country,
                                             style: TextStyle(
                                               fontWeight: FontWeight.w300,
                                             ),
@@ -132,7 +144,7 @@ class SearchPage extends StatelessWidget {
                                         SizedBox(width: 2),
                                         Text(
                                           getCloudDescription(
-                                            provider.weather!.cloud!,
+                                            provider.weather!.current!.cloud!,
                                           ),
                                           style: TextStyle(
                                             fontSize: 9,
@@ -145,6 +157,50 @@ class SearchPage extends StatelessWidget {
                                   ],
                                 ),
                               ],
+                            ),
+                          ),
+                          Container(
+                            height: 95,
+                            margin: EdgeInsets.all(4),
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: provider
+                                  .weather!
+                                  .forecast!
+                                  .forecastday!
+                                  .first
+                                  .hour!
+                                  .length,
+                              itemBuilder: (BuildContext context, int index) {
+                                final data = provider
+                                    .weather!
+                                    .forecast!
+                                    .forecastday!
+                                    .first
+                                    .hour!
+                                    .elementAt(index);
+                                return Container(
+                                  margin: EdgeInsets.symmetric(horizontal: 8),
+                                  padding: EdgeInsets.all(4),
+                                  height: 95,
+                                  width: 54,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: AppColor.surface,
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Text(data.time!.split(' ')[1]),
+                                      Image(
+                                        image: NetworkImage(
+                                          data.condition!.icon!,
+                                        ),
+                                      ),
+                                      Text('${data.tempC}°'),
+                                    ],
+                                  ),
+                                );
+                              },
                             ),
                           ),
                           Column(
@@ -164,7 +220,7 @@ class SearchPage extends StatelessWidget {
                                       color: Color(0xFFBAE0A6),
                                       assetName: 'assets/leaf.png',
                                       condition:
-                                          '${provider.weather!.airQuality} co',
+                                          '${provider.weather!.current!.airQuality!.co} co',
                                       type: 'Calidad del aire',
                                     ),
 
@@ -175,7 +231,7 @@ class SearchPage extends StatelessWidget {
                                       color: Color(0xFFF9C793),
                                       assetName: 'assets/wind.png',
                                       condition:
-                                          '${provider.weather!.windDir} ${provider.weather!.windKph} km/h',
+                                          '${provider.weather!.current!.windDir} ${provider.weather!.current!.windKph} km/h',
                                       type: 'Viento',
                                     ),
                                   ],
@@ -196,7 +252,7 @@ class SearchPage extends StatelessWidget {
                                       color: Color(0xFFB0E6F4),
                                       assetName: 'assets/drop.png',
                                       condition:
-                                          '${provider.weather!.humidity}%',
+                                          '${provider.weather!.current!.humidity}%',
                                       type: 'Humedad',
                                     ),
 
@@ -207,7 +263,7 @@ class SearchPage extends StatelessWidget {
                                       color: Color(0xFFCCB3CC),
                                       assetName: 'assets/uv.png',
                                       condition: getUvDescription(
-                                        provider.weather!.uv!,
+                                        provider.weather!.current!.uv!,
                                       ),
                                       type: 'Riesgo UV',
                                     ),

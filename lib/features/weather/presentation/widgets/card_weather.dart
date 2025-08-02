@@ -19,7 +19,7 @@ class CardWeather extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: MediaQuery.sizeOf(context).height * 0.3,
       width: width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
@@ -29,7 +29,10 @@ class CardWeather extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Image(image: AssetImage(assetName), height: 135),
+            Image(
+              image: AssetImage(assetName),
+              height: MediaQuery.sizeOf(context).height * 0.21,
+            ),
             Text(
               condition,
               style: TextStyle(fontWeight: FontWeight.w900, fontSize: 12),

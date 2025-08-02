@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
             )
           : Scaffold(
               floatingActionButton: Padding(
-                padding: const EdgeInsets.all(2.0),
+                padding: const EdgeInsets.only(bottom: 4),
                 child: FloatingActionButton(
                   onPressed: () => context.push('/page'),
                   backgroundColor: AppColor.primary,
@@ -84,7 +84,7 @@ class HomePage extends StatelessWidget {
                                 ),
                                 RichText(
                                   text: TextSpan(
-                                    text: '${provider.weather!.region}\n',
+                                    text: '${provider.weather!.name}\n',
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
@@ -92,7 +92,7 @@ class HomePage extends StatelessWidget {
                                     ),
                                     children: <TextSpan>[
                                       TextSpan(
-                                        text: '${provider.weather!.name}, ',
+                                        text: '${provider.weather!.region}, ',
                                         style: TextStyle(
                                           fontWeight: FontWeight.w300,
                                         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weatherapp/features/weather/domain/entities/weather_entities.dart';
+import 'package:weatherapp/features/weather/domain/entities/weather_hour_entities.dart';
 import 'package:weatherapp/features/weather/domain/usecases/weather_usecases.dart';
 
 class WeatherByCityProvider extends ChangeNotifier {
@@ -7,11 +7,11 @@ class WeatherByCityProvider extends ChangeNotifier {
 
   WeatherByCityProvider({required this.weatherUseCase});
 
-  WeatherEntity? _weather;
+  WeatherHourEntity? _weather;
   bool _isLoading = false;
   String? _errorMessage;
 
-  WeatherEntity? get weather => _weather;
+  WeatherHourEntity? get weather => _weather;
   bool get isLoading => _isLoading;
   String? get errorMessage => _errorMessage;
 
@@ -24,7 +24,7 @@ class WeatherByCityProvider extends ChangeNotifier {
 
     notifyListeners();
 
-    final response = await weatherUseCase.getWeather(cityName);
+    final response = await weatherUseCase.getWeatherByHour(cityName);
 
     _weather = response;
     _isLoading = false;

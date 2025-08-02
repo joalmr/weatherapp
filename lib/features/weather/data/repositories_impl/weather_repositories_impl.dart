@@ -1,4 +1,5 @@
 import "package:weatherapp/features/weather/domain/entities/weather_entities.dart";
+import "package:weatherapp/features/weather/domain/entities/weather_hour_entities.dart";
 
 import "../../domain/repositories/weather_repositories.dart";
 import "../datasources/weather_datasources.dart";
@@ -11,5 +12,10 @@ class WeatherRepositoriesImpl implements WeatherRepository {
   @override
   Future<WeatherEntity> getWeather(String location) async {
     return await dataSource.getWeather(location);
+  }
+
+  @override
+  Future<WeatherHourEntity> getWeatherByHour(String location) async {
+    return await dataSource.getWeatherByHour(location);
   }
 }
