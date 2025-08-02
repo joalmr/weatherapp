@@ -1,4 +1,4 @@
-<img src="./assets/icon.png" alt="WeatherApp" width="180"/> 
+<img src="./assets/logo.png" alt="WeatherApp" width="180"/> 
 
 # WeatherApp 🌦️
 
