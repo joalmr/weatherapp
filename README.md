@@ -64,3 +64,20 @@
 2. La app muestra el clima actual de tu ubicación.
 3. Puedes buscar cualquier ciudad desde la barra de búsqueda.
 4. Visualiza detalles como temperatura, humedad, viento y otros.
+
+---
+
+<div style="display: flex; gap: 16px;">
+<div>
+<h3>Tema Claro</h3>
+<img src="./assets/app/light.jpeg" alt="Light Theme" height="400"/>
+</div>
+<div>
+<h3>Tema Oscuro</h3>
+<img src="./assets/app/dark.jpeg" alt="Dark Theme" height="400"/>
+</div>
+</div>
+
+
+  
+  
