@@ -2,7 +2,7 @@
 
 # WeatherApp 🌦️
 
-**WeatherApp** es una aplicación móvil desarrollada en **Flutter** que permite visualizar el clima actual y el pronóstico para próximos días según una ciudad.
+**WeatherApp** es una aplicación móvil desarrollada en **Flutter** que permite visualizar el clima actual y el pronóstico según una ciudad.
 
 ---
 
