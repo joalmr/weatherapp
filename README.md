@@ -67,17 +67,6 @@
 
 ---
 
-<div style="display: flex; gap: 16px;">
-<div>
-<h3>Tema Claro</h3>
-<img src="./assets/app/light.jpeg" alt="Light Theme" height="400"/>
-</div>
-<div>
-<h3>Tema Oscuro</h3>
-<img src="./assets/app/dark.jpeg" alt="Dark Theme" height="400"/>
-</div>
-</div>
-
-
-  
-  
+| Tema Claro | Tema Oscuro |
+|------------|-------------|
+| <img src="./assets/app/light.jpeg" width="300"/> | <img src="./assets/app/dark.jpeg" width="300"/> |
