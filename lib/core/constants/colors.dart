@@ -16,7 +16,7 @@ class AppColor {
 
 // Tema Claro
 class _LightTheme {
-  static const primary = Color(0xFF5399D3);
+  static const primary = Color(0xFF1976D2);
   static const background = Color(0xFFF1F8FF);
   static const surface = Color(0xFFE3F2FD);
   static const onBackground = Color(0xFF1A1B23);
