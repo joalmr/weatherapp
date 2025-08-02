@@ -17,8 +17,9 @@ dependencies:
   logger: ^2.6.1
   provider: ^6.1.5
   shimmer_animation: ^2.2.2
-  geolocator: ^10.1.0
-  geocoding: ^2.1.1
+  geolocator: ^14.0.2
+  geocoding: ^4.0.0
+  
 
 dev_dependencies:
   flutter_test:

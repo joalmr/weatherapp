@@ -10,8 +10,13 @@ class LocationService {
         throw Exception('Permisos de ubicación denegados');
       }
 
+      final LocationSettings locationSettings = LocationSettings(
+        accuracy: LocationAccuracy.high,
+        distanceFilter: 100,
+      );
+
       final position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high,
+        locationSettings: locationSettings,
       );
 
       final placemarks = await placemarkFromCoordinates(

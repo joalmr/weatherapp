@@ -49,6 +49,10 @@
 	<string>Esta app necesita acceso a la ubicación para mostrar el clima local</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Esta app necesita acceso a la ubicación para mostrar el clima local</string> -->
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Esta app necesita acceso a la ubicación para mostrar tu lugar actual.</string>
 </dict>
