@@ -80,7 +80,6 @@
 - El llamado a los servicio se realiza con **Dio**
 - La navegación es manejada por **GoRouter**
 
-## 📁 Estructura
 Esta es la estructura de carpetas:
 
 ```css
