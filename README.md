@@ -1,3 +1,5 @@
+<img src="./assets/icon.png" alt="WeatherApp" width="180"/> 
+
 # WeatherApp 🌦️
 
 **WeatherApp** es una aplicación móvil desarrollada en **Flutter** que permite visualizar el clima actual y el pronóstico para próximos días según una ciudad.
