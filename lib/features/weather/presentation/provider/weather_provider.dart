@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weatherapp/core/utils/get_place.dart';
 import 'package:weatherapp/features/weather/domain/entities/weather_entities.dart';
 import 'package:weatherapp/features/weather/domain/usecases/weather_usecases.dart';
 
@@ -6,7 +7,7 @@ class WeatherProvider extends ChangeNotifier {
   final WeatherUseCase weatherUseCase;
 
   WeatherProvider({required this.weatherUseCase}) {
-    fetchCurrentWeather('auto:ip');
+    fetchCurrentWeather(); //'auto:ip'
   }
 
   WeatherEntity? _weather;
@@ -17,11 +18,12 @@ class WeatherProvider extends ChangeNotifier {
   bool get isLoading => _isLoading;
   String? get errorMessage => _errorMessage;
 
-  Future<void> fetchCurrentWeather(String cityName) async {
+  Future<void> fetchCurrentWeather() async {
     _isLoading = true;
 
     notifyListeners();
 
+    String cityName = await getPlaceName();
     final response = await weatherUseCase.getWeather(cityName);
 
     _weather = response;
