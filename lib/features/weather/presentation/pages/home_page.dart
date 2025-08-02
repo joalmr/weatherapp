@@ -95,12 +95,14 @@ class HomePage extends StatelessWidget {
                                         text: '${provider.weather!.region}, ',
                                         style: TextStyle(
                                           fontWeight: FontWeight.w300,
+                                          fontSize: 12,
                                         ),
                                       ),
                                       TextSpan(
                                         text: provider.weather!.country,
                                         style: TextStyle(
                                           fontWeight: FontWeight.w300,
+                                          fontSize: 12,
                                         ),
                                       ),
                                     ],

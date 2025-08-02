@@ -18,7 +18,7 @@ class WeatherDataSourceImpl implements WeatherDataSource {
       'http://api.weatherapi.com/v1/current.json?key=${dotenv.env['WEATHER_KEY']!}&q=$location&aqi=yes',
     );
 
-    Logger().d(response.data);
+    // Logger().d(response.data);
     return WeatherModel.fromJson(response.data);
   }
 

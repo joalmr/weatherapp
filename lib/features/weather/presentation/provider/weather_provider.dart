@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weatherapp/core/utils/get_place.dart';
+import 'package:logger/logger.dart';
+import 'package:weatherapp/core/utils/location_service.dart';
 import 'package:weatherapp/features/weather/domain/entities/weather_entities.dart';
 import 'package:weatherapp/features/weather/domain/usecases/weather_usecases.dart';
 
@@ -22,9 +23,12 @@ class WeatherProvider extends ChangeNotifier {
     _isLoading = true;
 
     notifyListeners();
+    final LocationService locationService = LocationService();
+    String getPlaceName = await locationService.getCurrentLocationName();
 
-    String cityName = await getPlaceName();
-    final response = await weatherUseCase.getWeather(cityName);
+    Logger().d(getPlaceName);
+
+    final response = await weatherUseCase.getWeather(getPlaceName);
 
     _weather = response;
     _isLoading = false;

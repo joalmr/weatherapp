@@ -120,6 +120,7 @@ class SearchPage extends StatelessWidget {
                                                 '${provider.weather!.location!.region}, ',
                                             style: TextStyle(
                                               fontWeight: FontWeight.w300,
+                                              fontSize: 12,
                                             ),
                                           ),
                                           TextSpan(
@@ -129,6 +130,7 @@ class SearchPage extends StatelessWidget {
                                                 .country,
                                             style: TextStyle(
                                               fontWeight: FontWeight.w300,
+                                              fontSize: 12,
                                             ),
                                           ),
                                         ],
