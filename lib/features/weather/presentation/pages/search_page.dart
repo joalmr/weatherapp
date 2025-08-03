@@ -192,13 +192,19 @@ class SearchPage extends StatelessWidget {
                                   ),
                                   child: Column(
                                     children: [
-                                      Text(data.time!.split(' ')[1]),
+                                      Text(
+                                        data.time!.split(' ')[1],
+                                        style: TextStyle(color: AppColor.text),
+                                      ),
                                       Image(
                                         image: NetworkImage(
                                           data.condition!.icon!,
                                         ),
                                       ),
-                                      Text('${data.tempC}°'),
+                                      Text(
+                                        '${data.tempC}°',
+                                        style: TextStyle(color: AppColor.text),
+                                      ),
                                     ],
                                   ),
                                 );

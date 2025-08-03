@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
                   backgroundColor: AppColor.primary,
                   foregroundColor: AppColor.surface,
                   shape: CircleBorder(),
-                  child: Icon(Icons.search),
+                  child: Icon(Icons.search, color: AppColor.text),
                 ),
               ),
               floatingActionButtonLocation:
